@@ -145,6 +145,7 @@ function createApplicationAt(path) {
           break;
         case 'jade':
           copy_template('jade/index.jade', path + '/views/index.jade');
+          copy_template('jade/grid.jade', path + '/views/grid.jade');
           copy_template('jade/layout.jade', path + '/views/layout.jade');
           copy_template('jade/error.jade', path + '/views/error.jade');
           break;
