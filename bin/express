@@ -205,6 +205,7 @@ function createApplicationAt(path) {
           'debug': '~2.1.1',
           'connect-redis': '~2.1.0',
           'fff':'rayie/fff',
+          'rie-utility':'rayie/rie-utility',
           'mongo-skin-wrapper': 'rayie/mongo-skin-wrapper',
           'express-base': 'rayie/express-base'
       }
