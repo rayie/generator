@@ -107,6 +107,9 @@ function createApplicationAt(path) {
     console.log('   install dependencies:');
     console.log('     $ cd %s && npm install', path);
     console.log();
+    console.log('   install bower components');
+    console.log('     $ bower install angular angular-ui bootstrap' );
+    console.log();
     console.log('   run the app:');
     console.log('     $ DEBUG=' + app_name + ' ./bin/www');
     console.log();
