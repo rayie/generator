@@ -5,5 +5,28 @@ block content
     h1= title
       h3 {{subtitle}}
       p Welcome to #{title}
-      div 
-
+      br
+      h4 Popup Date Picker
+      .row
+        .col-md-3
+          pre Selected date is {{ dt | date:'fullDate' }}
+          p.input-group
+            input.form-control(
+              type="text",
+              datepicker-popup="{{format}}",
+              ng-model="dt",
+              is-open="opened",
+              min-date="minDate",
+              max-date="2015-06-22",
+              datepicker-options="dateOptions",
+              date-disabled="disabled(date,mode)",
+              ng-required="true",
+              close-text="Close"
+            )
+            span.input-group-btn
+              button.btn.btn-default(type='button',ng-click="open($event)")
+                i.glyphicon.glyphicon-calendar
+      .row
+        .col-md-6
+          label Format:
+            select.form-control(ng-model="format",ng-options="f for f in formats")

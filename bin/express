@@ -58,6 +58,7 @@ var compass = fs.readFileSync(__dirname + '/../templates/css/style.scss', 'utf-8
 
 var app = fs.readFileSync(__dirname + '/../templates/js/app.js', 'utf-8');
 var www = fs.readFileSync(__dirname + '/../templates/js/www', 'utf-8');
+var baseApp = fs.readFileSync(__dirname + '/../templates/js/baseApp.js', 'utf-8');
 
 // Generate application
 
@@ -108,7 +109,7 @@ function createApplicationAt(path) {
     console.log('     $ cd %s && npm install', path);
     console.log();
     console.log('   install bower components');
-    console.log('     $ bower install angular angular-ui bootstrap' );
+    console.log('     $ bower install angular angular-bootstrap' );
     console.log();
     console.log('   run the app:');
     console.log('     $ DEBUG=' + app_name + ' ./bin/www');
@@ -117,7 +118,9 @@ function createApplicationAt(path) {
 
   mkdir(path, function(){
     mkdir(path + '/public');
-    mkdir(path + '/public/js');
+    mkdir(path + '/public/js', function(){
+      write(path + '/public/js/baseApp.js', baseApp);
+    });
     mkdir(path + '/public/img');
     mkdir(path + '/public/css', function(){
       switch (program.css) {
